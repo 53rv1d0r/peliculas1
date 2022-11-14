@@ -1,3 +1,87 @@
+## API en Laravel 8 y front vuetify (VUE)
+
+Archivos en la rama master:
+
+- Los propios del proyecto en Laravel.
+
+- Carpeta pelisvuetifycrud
+
+## Base de datos en MySql
+
+Inicialmente se crea base de datos en MySql vacía.
+
+Posteriormente va a quedar una sola tabla (mediante php artisan migrate) con los campos:
+
+id (defecto)
+
+descripcion (Nombre de interfaz: Pelicula)
+
+precio (Nombre de interfaz: Precio)
+
+stock (Nombre de interfaz: Inventario)
+
+timestamp (hora de creación defecto)
+
+timestamp (hora de edición defecto)
+
+## Modelo Articulo
+
+Se crea el modelo Articulo
+
+php artisan make model Articulo
+
+## Tabla articulos
+
+Se crea la migración para la creación de la tabla articulos
+
+php artisan make: migration create_articulos_table
+
+Se agregan a la migración los campos descripcion, precio, stock y sus respectivos tipos de dato
+
+se ejecuta una nueva migración php artisan migrate
+
+## Controlador Articulo
+
+Se crea el Articulo controller, se invoca el modelo Articulo
+
+php artisan make: controller ArticuloController --resource
+
+Aquí se definen los métodos del CRUD para la API
+
+Index + all trae todos los articulos (peliculas)
+
+Create
+
+Store + objeto request captura a la base de datos
+
+Show
+
+Edit
+
+Update + método findorfail
+
+Delete + destry ($request ->id)
+
+## Configuración de rutas
+
+Usamos la misma ruta /articulos para las operaciones de CRUD, por el método HTTP se identifica la operación CRUD a realizar.
+
+## Front en VUE JS
+
+- Framework vuetify
+
+- Cargado mediante CDN´s 
+
+- Plugin de Jquery Sweetalert para optimizar la presentación de los mensajes
+
+- Se crea la tabla
+
+- Variable let url tiene la ruta de la api (se pone a correr el proyecto y se ejecuta el front que apunta al proyecto)
+
+- Definimos variables y métodos GET, POST, PUT, DELETE (API)
+
+##
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
